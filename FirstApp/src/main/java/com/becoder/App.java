@@ -1,5 +1,7 @@
 package com.becoder;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -15,7 +17,8 @@ public class App {
 	{
 		// System.out.println( "Hello World!" );
 
-		// XML based hibernate configuration
+		// XML based hibernate configuration 
+		// Note : Nowadays we are not using XML based configuration
 		
 		// Configuration cfg = new Configuration();
 		// cfg.configure();
@@ -32,7 +35,10 @@ public class App {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		System.out.println("Java based hibernate configuration connection obj => "+ sessionFactory);
 		
-		Student s1 = new Student();
+		/*
+		 * Uncomment below code to deal with Student class
+		 * 
+		 * Student s1 = new Student();
 		s1.setId(1);
 		s1.setName("Deepak");
 		s1.setEmail("deepak_gupta@nucsoft.in");
@@ -45,7 +51,32 @@ public class App {
 		session.save(s1);
 		
 		beginTransaction.commit();
+		session.close();*/
+		
+		/**
+		 * Employee class
+		 * 
+		 * **/
+		
+		Employee emp = new Employee();
+		emp.setEmpName("Deepak");
+		emp.setEmail("deepak@gmail.com");
+		emp.setSalary(50000.00);
+		emp.setJoiningDate(new Date());
+		emp.setStatus(true);
+		emp.setToken("token123456");
+		
+		Session session = sessionFactory.openSession();
+		
+		Transaction beginTransaction = session.beginTransaction();
+		
+		session.save(emp); //inserting records of employee object into table
+		
+		beginTransaction.commit();
 		session.close();
+		
+		
+		
 	}
 
 }

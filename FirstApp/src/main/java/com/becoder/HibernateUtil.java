@@ -31,8 +31,11 @@ public class HibernateUtil {
 			
 			configuration.setProperties(properties);
 			//Add or register our entity class here to configure with hibernate
-			configuration.addAnnotatedClass(Student.class);
+			//uncomment below line when we will work with Student class 
+//			configuration.addAnnotatedClass(Student.class);
+			
 			configuration.addAnnotatedClass(Employee.class);
+			
 			StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 			
 			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
