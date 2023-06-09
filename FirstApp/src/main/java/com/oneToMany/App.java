@@ -46,7 +46,7 @@ public class App {
 		
 		
 		/*One To many relationship */
-		/*
+		System.out.println("====== ------- By Employee obj to address ----------======");
 		EmpDtlsOneToMany empDtl = (EmpDtlsOneToMany)session.get(EmpDtlsOneToMany.class, 201);
 		System.out.println(empDtl);
 		System.out.println(empDtl.getId());
@@ -57,7 +57,8 @@ public class App {
 		for (AddressOneToMany ad : empDtl.getAddress()) {
 			System.out.println("Address -> "+ad.getAddress() +" ,AddressType -> "+ad.getAddressType());	
 		}
-		*/
+		
+		System.out.println("====== ------------- By Address obj to Employee ------------======");
 		
 		//Bidirectional
 		AddressOneToMany add = (AddressOneToMany)session.get(AddressOneToMany.class, 101);
