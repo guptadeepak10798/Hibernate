@@ -4,10 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-
-
-
-
 public class AppMain {
 	public static void main(String[] args) {
 		//Get connection object
@@ -51,6 +47,7 @@ public class AppMain {
 //        session.save(ad);
 //        session.save(e);
       
+         //Getting data from Address object to EmpDtls object
 	      Address address = (Address)session.get(Address.class, 101);
 	      System.out.println(address.getAddress());
 	      System.out.println(address.getEmp().getName());
